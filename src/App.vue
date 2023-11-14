@@ -4,18 +4,15 @@ import PageHeader from './components/PageHeader.vue'
 </script>
 
 <template>
-  <PageHeader style="height: var(--header-height)" />
-  <RouterView style="margin-top: var(--header-height)" />
+  <PageHeader />
+  <RouterView />
 </template>
-
 <style>
 * {
-  color: inherit;
   text-decoration: inherit;
-}
-
-:root {
-  --header-height: 8vh;
+  color: inherit;
+  padding: 0px;
+  margin: 0px;
 }
 
 /* Remova o destaque de preenchimento automático */
@@ -33,7 +30,10 @@ input:-webkit-autofill:focus {
 
 #app {
   display: grid;
-  grid-template-rows: 1fr;
-  position: relative;
+  grid-template-columns: 1fr;
+  grid-template-rows: 8vh minmax(92vh, 1fr);
+  color: white;
+
+  background-size: cover;
 }
 </style>

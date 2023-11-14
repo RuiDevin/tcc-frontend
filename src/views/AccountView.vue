@@ -4,7 +4,7 @@
       <h2 class="title-block">Acesse sua conta</h2>
       <div class="input-block">
         <div class="input-user" :class="{ inputRed: placeholder.error == 1 }">
-          <img src="../assets/people.png" alt="" />
+          <img src="" alt="" />
           <input
             :placeholder="placeholder.login"
             type="text"
@@ -14,7 +14,7 @@
           />
         </div>
         <div class="input-email" :class="{ inputRed: placeholder.error == 3 }" v-if="signMode">
-          <img src="../assets/people.png" alt="" />
+          <img src="" alt="" />
           <input
             :placeholder="placeholder.email"
             type="text"
@@ -24,7 +24,7 @@
           />
         </div>
         <div class="input-password" :class="{ inputRed: placeholder.error == 2 }">
-          <img src="../assets/padlock.png" alt="" />
+          <img src="" alt="" />
           <input
             :placeholder="placeholder.senha"
             :type="showPassword ? 'text' : 'password'"
@@ -32,17 +32,13 @@
             v-model="formData.password"
             @input="restrictSpecialCharacters"
           />
-          <img
-            src="../assets/visual.png"
-            style="cursor: pointer"
-            @click="togglePasswordVisibility"
-            alt=""
-          />
+          <img src="" style="cursor: pointer" @click="togglePasswordVisibility" alt="" />
         </div>
       </div>
       <div class="button-block">
         <button @click="login">Entrar</button>
         <button class="register-button" @click="toggleSignMode">Registrar-se</button>
+        <button class="register-button" @click="sendAccount">L</button>
       </div>
     </div>
   </div>
@@ -50,6 +46,7 @@
 
 <script>
 import { useAuthStore } from '../stores/store.js'
+import axios from 'axios'
 
 export default {
   data() {
@@ -78,43 +75,56 @@ export default {
   },
 
   methods: {
-    toggleSignMode() {
-      this.signMode = !this.signMode
-    },
-
-    togglePasswordVisibility() {
-      this.showPassword = !this.showPassword
-    },
-
-    restrictSpecialCharacters(event) {
-      const input = event.target
-      input.value = input.value.replace(/[^\w.@]/gi, '')
-    },
-
-    login() {
-      const authStore = useAuthStore()
-      const username = this.formData.username
-      const password = this.formData.password
-
-      if (username.length < 3) {
-        this.placeholder.login = 'Insira um login'
-        this.placeholder.error = 1
-        return
+    sendAccount() {
+      const lule = {
+        username: 'Gabriel',
+        password: '1234',
+        email: 'deucerto@gmail.com'
       }
 
-      if (!password) {
-        this.placeholder.senha = 'Insira uma senha'
-        this.placeholder.error = 2
-        return
-      }
+      axios
+        .post('http://0.0.0.0:19003/api/usuarios', lule)
+        .then((response) => {})
+        .catch((error) => {})
+    }
+  },
 
-      authStore.login(username.toLowerCase(), password)
+  toggleSignMode() {
+    this.signMode = !this.signMode
+  },
 
-      if (this.previousPath != null) {
-        this.$router.push(this.previousPath)
-      } else {
-        this.$router.push('/')
-      }
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword
+  },
+
+  restrictSpecialCharacters(event) {
+    const input = event.target
+    input.value = input.value.replace(/[^\w.@]/gi, '')
+  },
+
+  login() {
+    const authStore = useAuthStore()
+    const username = this.formData.username
+    const password = this.formData.password
+
+    if (username.length < 3) {
+      this.placeholder.login = 'Insira um login'
+      this.placeholder.error = 1
+      return
+    }
+
+    if (!password) {
+      this.placeholder.senha = 'Insira uma senha'
+      this.placeholder.error = 2
+      return
+    }
+
+    authStore.login(username.toLowerCase(), password)
+
+    if (this.previousPath != null) {
+      this.$router.push(this.previousPath)
+    } else {
+      this.$router.push('/')
     }
   }
 }

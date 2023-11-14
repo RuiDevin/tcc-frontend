@@ -37,18 +37,16 @@ export default {
 
 <template>
   <main id="main">
-    <section class="about">
-      <div>
-        <h2>Quem somos</h2>
-        <p>
-          Ruivo Solutions, especializada em oferecer serviços de alta qualidade em assistência
-          técnica para celulares, computadores e notebooks. Nosso compromisso é fornecer soluções
-          eficientes para suas necessidades tecnológicas.
-        </p>
-      </div>
+    <section id="about">
+      <h2>Quem somos</h2>
+      <p>
+        Ruivo Solutions, especializada em oferecer serviços de alta qualidade em assistência técnica
+        para celulares, computadores e notebooks. Nosso compromisso é fornecer soluções eficientes
+        para suas necessidades tecnológicas.
+      </p>
     </section>
 
-    <section class="servicos">
+    <section id="servicos">
       <h2>Serviços</h2>
       <div>
         <p>Oferecemos uma variedade de serviços para atender suas necessidades tecnológicas:</p>
@@ -63,7 +61,7 @@ export default {
       </div>
     </section>
 
-    <section class="orcamento">
+    <section id="orcamento">
       <h2>Peça um orçamento</h2>
       <form @submit.prevent="handleSubmit">
         <label for="nome">Nome:</label>
@@ -73,25 +71,28 @@ export default {
         <input type="email" id="email" name="email" required />
 
         <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+        <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
 
-        <button type="submit">Enviar</button>
+        <div class="buttons">
+          <button type="submit">Limpar</button>
+          <button type="submit">Enviar</button>
+        </div>
       </form>
     </section>
 
-    <section>
+    <section id="contact">
       <h2>Fale Conosco</h2>
       <p>Entre em contato conosco para obter mais informações.</p>
       <p>E-mail: contato@ruivosolutions.com</p>
       <p>Telefone: (123) 456-7890</p>
     </section>
 
-    <section class="localizacao">
+    <section id="localizacao">
       <h2>Localização</h2>
       <p>Rua Tech, nº 123, Centro, Cidade Tech. CEP: 12345-678</p>
     </section>
 
-    <section class="faq">
+    <section id="faq">
       <h2>Perguntas Frequentes</h2>
       <ul>
         <!-- Perguntas frequentes aqui -->
@@ -102,12 +103,13 @@ export default {
 
 <style scoped>
 #main {
+  color: black;
   min-height: 92vh;
-  min-height: calc(100vh - var(--header-height));
 }
 
 section {
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px;
 
   display: flex;
   flex-direction: column;
@@ -115,25 +117,64 @@ section {
   align-items: center;
 }
 
-section:first-of-type {
-  height: calc(100vh - var(--header-height));
-}
-
 section:nth-child(odd) {
   background-color: gray;
 }
 
-.orcamento {
+#about {
+  text-align: center;
+  height: 92vh;
 }
 
-.orcamento > h2 {
+#orcamento {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#orcamento > h2 {
   font-weight: bolder;
 }
 
-.orcamento > form {
+form {
   display: flex;
   flex-direction: column;
-  background-color: white;
+
+  gap: 5px;
   padding: 20px;
+
+  border-radius: 15px;
+  background-color: white;
+}
+
+form > input {
+  width: 250px;
+  border-radius: 8px;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+form > textarea {
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 25px;
+  border-radius: 8px;
+
+  background-color: black;
+  color: white;
+  border: none;
+  align-self: center;
+  width: fit-content;
+  height: fit-content;
 }
 </style>
