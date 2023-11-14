@@ -18,26 +18,16 @@ export const useAuthStore = defineStore('auth', {
   }
 })
 
-export const usePurchaseStore = defineStore('purchase', {
+export const useFormStore = defineStore('form', {
   state: () => ({
-    purchase: null
+    form: null
   }),
   actions: {
-    keepPurchase(
-      totalPrice,
-      currentEloName,
-      currentEloImage,
-      targetEloName,
-      targetEloImage,
-      deadline
-    ) {
-      this.purchase = {
-        totalPrice: totalPrice,
-        currentEloName: currentEloName,
-        currentEloImage: currentEloImage,
-        targetEloName: targetEloName,
-        targetEloImage: targetEloImage,
-        deadline: deadline
+    keepForm(name, email, message) {
+      this.form = {
+        name: name,
+        email: email,
+        message: message
       }
     },
     clearPurchase() {

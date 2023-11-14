@@ -1,75 +1,102 @@
 <script>
-import MapaGoogle from '../components/MapaGoogle.vue';
+// import MapaGoogle from '../components/MapaGoogle.vue'
+import { useFormStore } from '../stores/store.js'
+import { useAuthStore } from '../stores/store.js'
 
 export default {
-  name: 'App',
-  components: {
-    MapaGoogle,
-    // outros componentes que você pode ter
+  components: {},
+  data() {
+    return {
+      var1: null,
+      va2: false,
+      var3: {},
+      var4: []
+    }
   },
-  // outras configurações
-};
-</script>
+  computed: {
+    isAuthenticated() {
+      const authStore = useAuthStore()
+      return authStore.isAuthenticated
+    }
+  },
+  methods: {
+    handleSubmit(name, email, message) {
+      if (!this.isAuthenticated) {
+        this.$router.push({
+          path: '/account',
+          query: { currentPath: this.$route.fullPath }
+        })
+      }
 
+      const formStore = useFormStore()
+      formStore.keepForm(name.toLowerCase(), email.toLowerCase(), message)
+    }
+  }
+}
+</script>
 
 <template>
   <main id="main">
     <section class="about">
-        <div>
-          <h2>Quem somos</h2>
-          <p>Ruivo Solutions, especializada em oferecer serviços de alta qualidade em assistência técnica para celulares, computadores e notebooks. Nosso compromisso é fornecer soluções eficientes para suas necessidades tecnológicas.</p>
-        </div>
-      </section>
+      <div>
+        <h2>Quem somos</h2>
+        <p>
+          Ruivo Solutions, especializada em oferecer serviços de alta qualidade em assistência
+          técnica para celulares, computadores e notebooks. Nosso compromisso é fornecer soluções
+          eficientes para suas necessidades tecnológicas.
+        </p>
+      </div>
+    </section>
 
-      <section class="servicos">
-        <h2>Serviços</h2>
-        <div>
-          <p>Oferecemos uma variedade de serviços para atender suas necessidades tecnológicas:</p>
-          <ul>
-            <li>Reparo de celulares e smartphones</li>
-            <li>Manutenção de computadores e laptops</li>
-            <li>Upgrade de hardware e software</li>
-            <li>Recuperação de dados</li>
-            <li>Configuração de rede</li>
-            <li>e muito mais...</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="orcamento">
-        <h2>Peça um orçamento</h2>
-        <form>
-          <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="nome" required>
-
-          <label for="email">E-mail:</label>
-          <input type="email" id="email" name="email" required>
-
-          <label for="mensagem">Mensagem:</label>
-          <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
-
-          <button type="submit">Enviar</button>
-        </form>
-      </section>
-
-      <section>
-        <h2>Fale Conosco</h2>
-        <p>Entre em contato conosco para obter mais informações.</p>
-        <p>E-mail: contato@ruivosolutions.com</p>
-        <p>Telefone: (123) 456-7890</p>
-      </section>
-
-      <section class="localizacao">
-        <h2>Localização</h2>
-        <p>Rua Tech, nº 123, Centro, Cidade Tech. CEP: 12345-678</p>
-      </section>
-      
-      <section class="faq">
-        <h2>Perguntas Frequentes</h2>
+    <section class="servicos">
+      <h2>Serviços</h2>
+      <div>
+        <p>Oferecemos uma variedade de serviços para atender suas necessidades tecnológicas:</p>
         <ul>
-          <!-- Perguntas frequentes aqui -->
+          <li>Reparo de celulares e smartphones</li>
+          <li>Manutenção de computadores e laptops</li>
+          <li>Upgrade de hardware e software</li>
+          <li>Recuperação de dados</li>
+          <li>Configuração de rede</li>
+          <li>e muito mais...</li>
         </ul>
-      </section>
+      </div>
+    </section>
+
+    <section class="orcamento">
+      <h2>Peça um orçamento</h2>
+      <form @submit.prevent="handleSubmit">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Fale Conosco</h2>
+      <p>Entre em contato conosco para obter mais informações.</p>
+      <p>E-mail: contato@ruivosolutions.com</p>
+      <p>Telefone: (123) 456-7890</p>
+    </section>
+
+    <section class="localizacao">
+      <h2>Localização</h2>
+      <p>Rua Tech, nº 123, Centro, Cidade Tech. CEP: 12345-678</p>
+    </section>
+
+    <section class="faq">
+      <h2>Perguntas Frequentes</h2>
+      <ul>
+        <!-- Perguntas frequentes aqui -->
+      </ul>
+    </section>
   </main>
 </template>
 
@@ -89,7 +116,7 @@ section {
 }
 
 section:first-of-type {
-  height: calc(100vh - var(--header-height));;
+  height: calc(100vh - var(--header-height));
 }
 
 section:nth-child(odd) {
@@ -109,5 +136,4 @@ section:nth-child(odd) {
   background-color: white;
   padding: 20px;
 }
-
 </style>
