@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class="{ headerWhileDropdown: showDropdown }">
+  <header :class="{ headerWhileDropdown: showDropdown }">
     <RouterLink to="/" class="item header-logo">
       <p>Ruivo Solutions</p>
     </RouterLink>
@@ -65,7 +65,7 @@ export default {
 </script>
 
 <style scoped>
-.header {
+header {
   background-color: rgb(8, 58, 91);
   color: white;
   font-size: 1.2rem;
@@ -107,7 +107,7 @@ export default {
   gap: 5px;
 }
 
-.header-logo > img {
+header-logo > img {
   height: 6vh;
 }
 

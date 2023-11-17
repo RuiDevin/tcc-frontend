@@ -32,8 +32,21 @@ input:-webkit-autofill:focus {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 8vh minmax(92vh, 1fr);
-  color: white;
 
   background-size: cover;
+  color: black;
+
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
 }
 </style>
