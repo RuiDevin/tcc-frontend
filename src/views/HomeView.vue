@@ -1,18 +1,18 @@
 <template>
   <main>
     <About />
+    <Help />
     <Services />
-    <Contact />
   </main>
 </template>
 
 <script>
 import About from '../components/AboutComponent.vue'
 import Services from '../components/ServicesComponent.vue'
-import Contact from '../components/ContactComponent.vue'
+import Help from '../components/HelpComponent.vue'
 
 export default {
-  components: { About, Services, Contact },
+  components: { About, Services, Help },
   data() {
     return {}
   },

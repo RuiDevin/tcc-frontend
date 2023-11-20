@@ -90,7 +90,7 @@ header {
 
   gap: 3px;
   height: 100%;
-  padding-inline: 10px;
+  padding-inline: 15px;
 
   cursor: pointer;
   transition: color 0.2s;

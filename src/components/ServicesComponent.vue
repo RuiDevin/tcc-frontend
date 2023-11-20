@@ -69,18 +69,20 @@ main {
     height 0.5s;
 
   /* min-height: 100vh; */
-  background-color: lightsalmon;
-  border-block: 5px solid black;
+  background-color: skyblue;
+  color: white;
 }
 
 #content {
-  margin: 40px;
+  padding-bottom: 60px;
 
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
   flex-grow: 1;
+  color: black;
+  gap: 20px;
 }
 
 .title {
@@ -109,6 +111,7 @@ main {
   width: 350px;
   height: 350px;
   background-color: white;
+  color: black;
   border: 3px solid black;
   border-radius: 30px;
 
@@ -121,21 +124,21 @@ main {
 }
 
 .item:hover {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.3);
   box-shadow: 3px 3px 3px 3px black;
 }
 
 .selected {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.3);
   box-shadow: 3px 3px 3px 3px black;
 }
 
 button {
   margin-top: 40px;
   font-size: 2rem;
-  width: fit-content;
+  width: 50vw;
   margin-inline: auto;
-  padding: 20px 450px;
+  padding: 20px 60px;
   border-radius: 15px;
   cursor: pointer;
   background-color: black;
