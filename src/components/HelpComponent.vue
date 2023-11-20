@@ -5,29 +5,20 @@
       <div class="container">
         <div class="block">
           <img class="symbol" src="/assets/abstract-shape.png" alt="" />
-          <p>Como solicitar uma assistência técnica?</p>
+          <h2>Como solicitar uma assistência técnica?</h2>
           <img class="down-arrow" src="/assets/down-arrow.png" alt="" />
         </div>
         <div class="block">
           <img class="symbol" src="/assets/abstract-shape.png" alt="" />
-          <p>Vocês atendem ao domicilio?</p>
+          <h2>Vocês atendem ao domicilio?</h2>
           <img class="down-arrow" src="/assets/down-arrow.png" alt="" />
         </div>
         <div class="block">
           <img class="symbol" src="/assets/abstract-shape.png" alt="" />
-          <p>Vocês fazem atendimento online?</p>
+          <h2>Vocês fazem atendimento online?</h2>
           <img class="down-arrow" src="/assets/down-arrow.png" alt="" />
         </div>
       </div>
-      <!-- <div class="mapouter">
-        <div class="gmap_canvas">
-          <iframe
-            src="https://maps.google.com/maps?q=itinga%20loja&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
-            frameborder="0"
-            scrolling="no"
-          ></iframe>
-        </div>
-      </div> -->
     </div>
   </main>
 </template>
@@ -58,7 +49,7 @@ main {
 }
 
 #content {
-  padding-block: 40px;
+  padding: 40px 20px;
 
   display: flex;
   flex-direction: column;
@@ -89,7 +80,6 @@ main {
   justify-content: space-between;
   gap: 8px;
 
-  font-size: 1.5rem;
   border: 4px solid rgba(255, 255, 255, 0.5);
   padding: 15px 20px;
 
@@ -109,24 +99,19 @@ main {
   justify-self: flex-end;
 }
 
-.mapouter {
-  border-radius: 20px;
-  height: 500px;
-  width: 100%;
-  background: #fff;
-}
+@media (max-width: 800px) {
+  .title {
+    padding: 0px;
+    margin: 0px;
+    border-bottom: 1px solid black;
+  }
 
-.gmap_canvas {
-  border-radius: 20px;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-}
+  h1 {
+    font-size: 1.5rem;
+  }
 
-.gmap_canvas iframe {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  width: 100%;
+  h2 {
+    font-size: 1.2rem;
+  }
 }
 </style>

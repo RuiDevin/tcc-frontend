@@ -6,7 +6,7 @@
     <div class="item">
       <div class="item-user" @click="redirectToAccount">
         <span>{{ username }}</span>
-        <img v-if="isAuthenticated" class="user-image" src="../assets/user.webp" alt="" />
+        <img v-if="isAuthenticated" class="user-image" src="/assets/usuario.png" alt="" />
       </div>
     </div>
     <div v-if="showDropdown" class="dropdown">
