@@ -84,7 +84,7 @@ main {
   text-align: center;
   flex-grow: 1;
   color: black;
-  gap: 60px;
+  gap: 40px;
 }
 
 .title {
@@ -138,9 +138,10 @@ main {
 button {
   width: 50vw;
   font-size: 2rem;
-  padding: 20px 50px;
+  padding: 20px;
   border-radius: 15px;
 
+  text-align: center;
   cursor: pointer;
   background-color: black;
   color: white;
@@ -182,7 +183,7 @@ button:hover {
   }
 
   button {
-    padding: 20px 50px;
+    font-size: 1.5rem;
   }
 }
 </style>
