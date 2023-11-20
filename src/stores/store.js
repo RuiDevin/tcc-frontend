@@ -18,20 +18,16 @@ export const useAuthStore = defineStore('auth', {
   }
 })
 
-export const useFormStore = defineStore('form', {
+export const useHomeStore = defineStore('home', {
   state: () => ({
-    form: null
+    service: null
   }),
   actions: {
-    keepForm(name, email, message) {
-      this.form = {
-        name: name,
-        email: email,
-        message: message
-      }
+    keepSelection(service) {
+      this.service = service
     },
-    clearPurchase() {
-      this.purchase = null
+    clearSelection() {
+      this.service = null
     }
   }
 })

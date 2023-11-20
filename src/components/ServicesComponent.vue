@@ -36,13 +36,14 @@
           <img src="/assets/console.png" alt="" />
         </div>
       </div>
-      <button>Continuar</button>
+      <button @click="sendService(selected)">Continuar</button>
     </div>
   </main>
 </template>
 
 <script>
 export default {
+  props: ['sendService'],
   data() {
     return {
       selected: 'Computador'

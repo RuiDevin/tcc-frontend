@@ -2,11 +2,13 @@
   <main>
     <About />
     <Help />
-    <Services />
+    <Services :sendService="sendService" />
   </main>
 </template>
 
 <script>
+import { useHomeStore } from '../stores/store.js'
+
 import About from '../components/AboutComponent.vue'
 import Services from '../components/ServicesComponent.vue'
 import Help from '../components/HelpComponent.vue'
@@ -18,7 +20,14 @@ export default {
   },
   created() {},
   computed: {},
-  methods: {}
+  methods: {
+    sendService(service) {
+      this.$router.push({
+        path: '/services',
+        query: { type: service }
+      })
+    }
+  }
 }
 </script>
 
