@@ -7,17 +7,45 @@ import PageHeader from './components/PageHeader.vue'
   <PageHeader />
   <RouterView />
 </template>
+
 <style>
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --color-text: rgba(255, 255, 255, 0.7);
+}
+
 * {
   text-decoration: inherit;
-<<<<<<< HEAD
   margin: 0px;
   padding: 0px;
-=======
   color: inherit;
-  padding: 0px;
-  margin: 0px;
->>>>>>> efe53f56933e2f1a6869b43a2ac8db8b6abe71bd
+  color: rgba(255, 255, 255, 0.77);
 }
 
 /* Remova o destaque de preenchimento automático */
@@ -36,27 +64,6 @@ input:-webkit-autofill:focus {
   min-height: 100vh;
 
   display: grid;
-<<<<<<< HEAD
   grid-template-rows: 60px 1fr;
-=======
-  grid-template-columns: 1fr;
-  grid-template-rows: 8vh minmax(92vh, 1fr);
-
-  background-size: cover;
-  color: black;
-
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Open Sans',
-    'Helvetica Neue',
-    sans-serif;
->>>>>>> efe53f56933e2f1a6869b43a2ac8db8b6abe71bd
 }
 </style>
