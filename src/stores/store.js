@@ -50,6 +50,7 @@ export const useAuthStore = defineStore('auth', () => {
   return { isAuthenticated, token, user, login, logout }
 })
 
+<<<<<<< HEAD
 export const usePurchaseStore = defineStore('purchase', {
   state: () => ({
     purchase: null,
@@ -76,6 +77,18 @@ export const usePurchaseStore = defineStore('purchase', {
     },
     clearPurchase() {
       this.purchase = null
+=======
+export const useHomeStore = defineStore('home', {
+  state: () => ({
+    service: null
+  }),
+  actions: {
+    keepSelection(service) {
+      this.service = service
+    },
+    clearSelection() {
+      this.service = null
+>>>>>>> efe53f56933e2f1a6869b43a2ac8db8b6abe71bd
     }
   }
 })
